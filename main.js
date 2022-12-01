@@ -1,0 +1,22 @@
+dayjs.locale("pl");
+const mainDiv = document.getElementById("mainDiv");
+const hourHeader = document.createElement("h1");
+const weekDayHeader = document.createElement("h1");
+const dateHeader = document.createElement("h1");
+hourHeader.setAttribute("id", "hourHeader");
+weekDayHeader.setAttribute("id", "weekDayHeader");
+dateHeader.setAttribute("id", "dateHeader");
+hourHeader.innerText = dayjs().format("HH:mm:ss");
+dateHeader.innerText = dayjs().format("D MMMM YYYY");
+weekDayHeader.innerText = dayjs().format("dddd");
+mainDiv.appendChild(hourHeader);
+mainDiv.appendChild(weekDayHeader);
+mainDiv.appendChild(dateHeader);
+dateHeader;
+const clockTick = () => {
+  const hour = dayjs().format("HH:mm:ss");
+  const date = dayjs().format("D MMMM YYYY");
+  hourHeader.innerText = hour;
+  dateHeader.innerText = date;
+};
+setInterval(() => clockTick(), 1000);
