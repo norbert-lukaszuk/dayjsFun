@@ -9,18 +9,56 @@ html {
   padding: 0;
   box-sizing: border-box;
   font-size: 16px;
+  background-image: url("background.jpg");
+  background-size: cover;
+}
+h1 {
+  transition: transform 300ms;
+  cursor: pointer;
+}
+h1:hover {
+  transform: translate(-6px, -6px);
+}
+
+h1:hover::after {
+  content: url("copy.svg");
 }
 #mainDiv {
-  color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 #weekDayHeader {
   margin: 5rem;
 }
 #mainDiv h1 {
-  background-color: rgba(51, 51, 51, 0.6);
+  color: #333;
   text-align: center;
   font-size: 3rem;
-  margin: 2rem;
+  margin: 1rem;
   padding: 2rem;
   border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.2);
+}
+#hourHeader {
+  width: max-content;
+  background-color: rgba(233, 237, 201, 0.5);
+}
+#weekDayHeader {
+  width: fit-content;
+  align-self: flex-start;
+  background-color: rgba(250, 237, 205, 0.5);
+}
+#dateHeader {
+  align-self: flex-end;
+  color: #333;
+  width: fit-content;
+  text-align: center;
+  font-size: 3rem;
+  margin: 1rem;
+  padding: 2rem;
+  border-radius: 15px;
+  background-color: rgba(212, 163, 115, 0.5);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.2);
 }
