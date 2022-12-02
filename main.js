@@ -11,13 +11,28 @@ const hourHeader = document.createElement("h1");
 const weekDayHeader = document.createElement("h1");
 const dateHeader = document.createElement("h1");
 const daysInMonth = dayjs().endOf("month").date();
+function getFirstDayOfMonth(date) {
+  let day = date.startOf("month").day();
+  if (day === 0) {
+    day = 7;
+  }
+  return day;
+}
+
+const firstDayOfMonth = getFirstDayOfMonth(dayjs().add(2, "month"));
+// const firstDayOfMonth = dayjs().startOf("month").day();
+for (let i = 1; i < firstDayOfMonth; i++) {
+  const day = document.createElement("span");
+  day.setAttribute("class", "daySpan");
+  calendarDiv.appendChild(day);
+}
 for (let i = 1; i <= daysInMonth; i++) {
   const day = document.createElement("span");
   day.setAttribute("class", "daySpan");
   day.innerText = i.toString();
   calendarDiv.appendChild(day);
 }
-console.log(daysInMonth);
+console.log(daysInMonth, firstDayOfMonth);
 hourHeader.setAttribute("id", "hourHeader");
 weekDayHeader.setAttribute("id", "weekDayHeader");
 dateHeader.setAttribute("id", "dateHeader");
