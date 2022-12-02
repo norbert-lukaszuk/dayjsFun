@@ -2,6 +2,7 @@ dayjs.locale("pl");
 const mainDiv = document.getElementById("mainDiv");
 const dateDiv = document.getElementById("dateDiv");
 const hourDiv = document.getElementById("hourDiv");
+const navList = document.getElementById("navList");
 const hourHeader = document.createElement("h1");
 const weekDayHeader = document.createElement("h1");
 const dateHeader = document.createElement("h1");
@@ -14,7 +15,7 @@ weekDayHeader.innerText = dayjs().format("dddd");
 dateDiv.appendChild(weekDayHeader);
 hourDiv.appendChild(hourHeader);
 dateDiv.appendChild(dateHeader);
-
+console.log(navList.childNodes.keys());
 const copyInside = (element) => {
   console.log(element);
 };

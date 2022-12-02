@@ -13,7 +13,22 @@ html {
   background-image: url("background.jpg");
   background-size: cover;
 }
-
+#navList {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #999;
+  list-style-type: none;
+  padding: 0.5rem 1rem;
+}
+#navList > li {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+#navList > li > a {
+  color: #999;
+  text-decoration: none;
+}
 h1 {
   transition: transform 300ms;
   cursor: pointer;
@@ -45,32 +60,32 @@ h1:hover {
   margin: 5rem;
 }
 #mainDiv h1 {
-  color: #333;
+  color: #222;
   text-align: center;
   font-size: 1rem;
   margin: 0.5rem;
   padding: 1rem;
   border-radius: 15px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.2);
 }
 #dateDiv h1 {
-  color: #333;
+  color: #222;
   text-align: center;
   font-size: 1rem;
   margin: 0.5rem;
   padding: 1rem;
   border-radius: 15px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.2);
 }
 #hourHeader {
-  background-color: rgba(233, 237, 201, 0.5);
+  background-color: rgba(233, 237, 201, 0.3);
 }
 #weekDayHeader {
   align-self: flex-start;
   flex-grow: 1;
-  background-color: rgba(250, 237, 205, 0.5);
+  background-color: rgba(250, 237, 205, 0.3);
 }
 #dateHeader {
   align-self: flex-end;
@@ -82,6 +97,6 @@ h1:hover {
   margin: 1rem;
   padding: 2rem;
   border-radius: 15px;
-  background-color: rgba(212, 163, 115, 0.5);
+  background-color: rgba(212, 163, 115, 0.3);
   box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.2);
 }
