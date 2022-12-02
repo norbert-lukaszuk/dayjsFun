@@ -4,6 +4,7 @@
   padding: 0;
 }
 html {
+  height: 2400px;
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
@@ -12,6 +13,7 @@ html {
   background-image: url("background.jpg");
   background-size: cover;
 }
+
 h1 {
   transition: transform 300ms;
   cursor: pointer;
@@ -20,38 +22,59 @@ h1:hover {
   transform: translate(-6px, -6px);
 }
 
-h1:hover::after {
+/* h1:hover::after {
   content: url("copy.svg");
-}
+} */
 #mainDiv {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  width: 25%;
+  position: fixed;
+  bottom: 0.5rem;
+  left: 0.5rem;
 }
+#dateDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
 #weekDayHeader {
   margin: 5rem;
 }
 #mainDiv h1 {
   color: #333;
   text-align: center;
-  font-size: 3rem;
-  margin: 1rem;
-  padding: 2rem;
+  font-size: 1rem;
+  margin: 0.5rem;
+  padding: 1rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.2);
+}
+#dateDiv h1 {
+  color: #333;
+  text-align: center;
+  font-size: 1rem;
+  margin: 0.5rem;
+  padding: 1rem;
   border-radius: 15px;
   backdrop-filter: blur(10px);
   box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.2);
 }
 #hourHeader {
-  width: max-content;
   background-color: rgba(233, 237, 201, 0.5);
 }
 #weekDayHeader {
-  width: fit-content;
   align-self: flex-start;
+  flex-grow: 1;
   background-color: rgba(250, 237, 205, 0.5);
 }
 #dateHeader {
   align-self: flex-end;
+  flex-grow: 2;
   color: #333;
   width: fit-content;
   text-align: center;

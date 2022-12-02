@@ -1,6 +1,7 @@
 dayjs.locale("pl");
 const mainDiv = document.getElementById("mainDiv");
 const dateDiv = document.getElementById("dateDiv");
+const hourDiv = document.getElementById("hourDiv");
 const hourHeader = document.createElement("h1");
 const weekDayHeader = document.createElement("h1");
 const dateHeader = document.createElement("h1");
@@ -10,8 +11,8 @@ dateHeader.setAttribute("id", "dateHeader");
 hourHeader.innerText = dayjs().format("HH:mm:ss");
 dateHeader.innerText = dayjs().format("D MMMM YYYY");
 weekDayHeader.innerText = dayjs().format("dddd");
-mainDiv.appendChild(weekDayHeader);
-mainDiv.appendChild(hourHeader);
+dateDiv.appendChild(weekDayHeader);
+hourDiv.appendChild(hourHeader);
 dateDiv.appendChild(dateHeader);
 
 const copyInside = (element) => {
