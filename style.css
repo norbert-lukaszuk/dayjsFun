@@ -48,6 +48,22 @@ h1:hover {
 /* h1:hover::after {
   content: url("copy.svg");
 } */
+.calendarDiv {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0 30rem;
+}
+.daySpan {
+  min-height: 2rem;
+  min-width: 2rem;
+  padding-top: 0.2rem;
+  border-radius: 0.3rem;
+  color: #222;
+  text-align: center;
+  background-color: rgba(153, 153, 153, 0.5);
+}
 #mainDiv {
   display: flex;
   justify-content: center;

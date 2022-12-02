@@ -1,11 +1,23 @@
 dayjs.locale("pl");
+// elements query
 const mainDiv = document.getElementById("mainDiv");
 const dateDiv = document.getElementById("dateDiv");
 const hourDiv = document.getElementById("hourDiv");
 const navList = document.getElementById("navList");
+const calendarDiv = document.querySelector(".calendarDiv");
+const items = navList.querySelectorAll("a");
+// creat elements
 const hourHeader = document.createElement("h1");
 const weekDayHeader = document.createElement("h1");
 const dateHeader = document.createElement("h1");
+const daysInMonth = dayjs().endOf("month").date();
+for (let i = 1; i <= daysInMonth; i++) {
+  const day = document.createElement("span");
+  day.setAttribute("class", "daySpan");
+  day.innerText = i.toString();
+  calendarDiv.appendChild(day);
+}
+console.log(daysInMonth);
 hourHeader.setAttribute("id", "hourHeader");
 weekDayHeader.setAttribute("id", "weekDayHeader");
 dateHeader.setAttribute("id", "dateHeader");
@@ -15,7 +27,6 @@ weekDayHeader.innerText = dayjs().format("dddd");
 dateDiv.appendChild(weekDayHeader);
 hourDiv.appendChild(hourHeader);
 dateDiv.appendChild(dateHeader);
-const items = navList.querySelectorAll("a");
 // console.log("items", items);
 items.forEach((link) => {
   if (window.location.href === link.href) {
