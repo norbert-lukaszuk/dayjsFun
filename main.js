@@ -15,7 +15,15 @@ weekDayHeader.innerText = dayjs().format("dddd");
 dateDiv.appendChild(weekDayHeader);
 hourDiv.appendChild(hourHeader);
 dateDiv.appendChild(dateHeader);
-console.log(navList.childNodes.keys());
+const items = navList.querySelectorAll("a");
+// console.log("items", items);
+items.forEach((link) => {
+  if (window.location.href === link.href) {
+    console.log(link.href);
+    link.classList.add("activeLink");
+    link.setAttribute("href", "#");
+  }
+});
 const copyInside = (element) => {
   console.log(element);
 };
