@@ -51,15 +51,16 @@ h1:hover {
 .calendarDiv {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 0.5rem;
-  /* display: flex;
-  justify-content: flex-start;
-  gap: 0.5rem;
-  flex-wrap: wrap; */
   padding: 0 30rem;
 }
+
+.weekDaySpan {
+  color: #999;
+}
 .daySpan {
+  cursor: pointer;
   min-height: 2rem;
   min-width: 2rem;
   padding-top: 0.2rem;
@@ -67,6 +68,9 @@ h1:hover {
   color: #222;
   text-align: center;
   background-color: rgba(153, 153, 153, 0.5);
+}
+.daySpan:hover {
+  transform: translate(-2px, -2px);
 }
 #mainDiv {
   display: flex;
