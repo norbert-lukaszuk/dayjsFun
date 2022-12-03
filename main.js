@@ -12,13 +12,16 @@ const weekDayHeader = document.createElement("h1");
 const dateHeader = document.createElement("h1");
 // calendar create
 const weekDaysPl = ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nd"];
+// populate calendar with names of weekdays in Polish
 weekDaysPl.forEach((item) => {
   const day = document.createElement("span");
   day.setAttribute("class", "weekDaySpan");
   day.innerText = item;
   calendarDiv.appendChild(day);
 });
+// how many day in month
 const daysInMonth = dayjs().endOf("month").date();
+// function to get info about where month begins in witch day of week (0 is sunday )
 function getFirstDayOfMonth(date) {
   let day = date.startOf("month").day();
   if (day === 0) {
@@ -28,19 +31,21 @@ function getFirstDayOfMonth(date) {
 }
 
 const firstDayOfMonth = getFirstDayOfMonth(dayjs());
-// const firstDayOfMonth = dayjs().startOf("month").day();
+// populate beginning of calenar with empty filds until first day of month
 for (let i = 1; i < firstDayOfMonth; i++) {
   const day = document.createElement("span");
   // day.setAttribute("class", "daySpan");
   calendarDiv.appendChild(day);
 }
+// populate calendar with rest of days of month
 for (let i = 1; i <= daysInMonth; i++) {
   const day = document.createElement("span");
   day.setAttribute("class", "daySpan");
   day.innerText = i.toString();
   calendarDiv.appendChild(day);
 }
-console.log(daysInMonth, firstDayOfMonth);
+console.log(calendarDiv.children);
+// create calendar
 hourHeader.setAttribute("id", "hourHeader");
 weekDayHeader.setAttribute("id", "weekDayHeader");
 dateHeader.setAttribute("id", "dateHeader");

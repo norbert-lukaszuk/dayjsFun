@@ -55,7 +55,13 @@ h1:hover {
   gap: 0.5rem;
   padding: 0 30rem;
 }
-
+/* formula for nth-child is different with grid model */
+.calendarDiv > span:nth-child(7n) {
+  color: aqua;
+}
+.calendarDiv > span:nth-child(7n - 1) {
+  color: rgb(175, 236, 33);
+}
 .weekDaySpan {
   color: #999;
 }
@@ -101,6 +107,7 @@ h1:hover {
   backdrop-filter: blur(15px);
   box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.2);
 }
+
 #dateDiv h1 {
   color: #222;
   text-align: center;
