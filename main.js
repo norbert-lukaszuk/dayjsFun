@@ -5,7 +5,7 @@ const mainDiv = document.getElementById("mainDiv");
 const dateDiv = document.getElementById("dateDiv");
 const hourDiv = document.getElementById("hourDiv");
 const navList = document.getElementById("navList");
-const plusButton = document.getElementById("plusButton");
+// const plusButton = document.getElementById("plusButton");
 const minusButton = document.getElementById("minusButton");
 const calendarDiv = document.querySelector(".calendarDiv");
 const items = navList.querySelectorAll("a");
@@ -13,13 +13,26 @@ const items = navList.querySelectorAll("a");
 const hourHeader = document.createElement("h1");
 const weekDayHeader = document.createElement("h1");
 const dateHeader = document.createElement("h1");
-
+const monthName = document.createElement("h4");
+monthName.setAttribute("class", "monthName");
+const plusButton = document.createElement("button");
+plusButton.setAttribute("onclick", "plusHandler()");
+plusButton.setAttribute("id", "plusButton");
+plusButton.setAttribute("class", "monthButton");
+plusButton.innerText = ">>>";
 /* create calendar */
 let selectedMonth = dayjs();
 const weekDaysPl = ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nd"];
 // populate calendar with delivered data
 function populateCalendar(month) {
   calendarDiv.innerHTML = null;
+  // put the month name above days & upper case first letter
+  calendarDiv.appendChild(monthName);
+  calendarDiv.appendChild(plusButton);
+  let firstLetter = selectedMonth.format("MMMM YYYY").slice(0, 1);
+  let rest = selectedMonth.format("MMMM YYYY").slice(1);
+  firstLetter = firstLetter.toUpperCase();
+  monthName.innerText = firstLetter + rest;
   // populate calendar with names of weekdays in Polish
   weekDaysPl.forEach((item) => {
     const day = document.createElement("span");

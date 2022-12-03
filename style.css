@@ -54,6 +54,10 @@ h1:hover {
   align-items: center;
   margin: 3rem 0;
 }
+#plusButton {
+  grid-column-start: 6;
+  grid-column-end: 8;
+}
 .monthButton {
   background: none;
   border: none;
@@ -65,20 +69,26 @@ h1:hover {
   cursor: pointer;
 }
 .monthButton:hover {
-  transform: translate(-3px, -3px);
+  transform: translate(-1px, -1px);
+}
+.monthName {
+  text-align: center;
+  color: #999;
+  grid-column-start: 1;
+  grid-column-end: 6;
 }
 .calendarDiv {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 0.5rem;
   padding: 0 30rem;
 }
 /* formula for nth-child is different with grid model */
-.calendarDiv > span:nth-child(7n) {
+.calendarDiv > span:nth-child(7n + 2) {
   color: aqua;
 }
-.calendarDiv > span:nth-child(7n - 1) {
+.calendarDiv > span:nth-child(7n + 1) {
   color: rgb(175, 236, 33);
 }
 .weekDaySpan {
