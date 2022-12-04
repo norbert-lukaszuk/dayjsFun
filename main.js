@@ -72,14 +72,20 @@ function populateCalendar(month) {
     day.innerText = i.toString();
     calendarDiv.appendChild(day);
   }
-  calendarDiv.addEventListener("click", (e) => {
+}
+
+calendarDiv.addEventListener("click", (e) => {
+  const idPresent = e.target.id.includes("day");
+  if (idPresent) {
     const selectedDate = `${selectedMonth.format("YYYY-MM")}-${
       e.target.innerText
     }`;
     const parseDate = dayjs(selectedDate);
-    console.log(parseDate);
-  });
-}
+    dateHeader.innerText = parseDate.format("D MMMM YYYY");
+    weekDayHeader.innerText = parseDate.format("dddd");
+  }
+});
+
 // onclick functions to add or subtract month
 function plusHandler() {
   selectedMonth = selectedMonth.add(1, "month");
@@ -97,7 +103,7 @@ hourHeader.setAttribute("id", "hourHeader");
 weekDayHeader.setAttribute("id", "weekDayHeader");
 dateHeader.setAttribute("id", "dateHeader");
 hourHeader.innerText = dayjs().format("HH:mm:ss");
-dateHeader.innerText = dayjs().format("D MMMM YYYY");
+dateHeader.innerText = selectedMonth.format("D MMMM YYYY");
 weekDayHeader.innerText = dayjs().format("dddd");
 dateDiv.appendChild(weekDayHeader);
 hourDiv.appendChild(hourHeader);
@@ -125,8 +131,8 @@ dateHeader.addEventListener("click", (e) => {
 
 const clockTick = () => {
   const hour = dayjs().format("HH:mm:ss");
-  const date = dayjs().format("D MMMM YYYY");
+  // const date = dayjs().format("D MMMM YYYY");
   hourHeader.innerText = hour;
-  dateHeader.innerText = date;
+  // dateHeader.innerText = date;
 };
 setInterval(() => clockTick(), 1000);
