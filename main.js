@@ -6,7 +6,7 @@ const dateDiv = document.getElementById("dateDiv");
 const hourDiv = document.getElementById("hourDiv");
 const navList = document.getElementById("navList");
 // const plusButton = document.getElementById("plusButton");
-const minusButton = document.getElementById("minusButton");
+// const minusButton = document.getElementById("minusButton");
 const calendarDiv = document.querySelector(".calendarDiv");
 const items = navList.querySelectorAll("a");
 // creat elements
@@ -20,6 +20,11 @@ plusButton.setAttribute("onclick", "plusHandler()");
 plusButton.setAttribute("id", "plusButton");
 plusButton.setAttribute("class", "monthButton");
 plusButton.innerText = ">>>";
+const minusButton = document.createElement("button");
+minusButton.setAttribute("id", "minusButton");
+minusButton.setAttribute("onclick", "minusHandler()");
+minusButton.setAttribute("class", "monthButton");
+minusButton.innerText = "<<<";
 /* create calendar */
 let selectedMonth = dayjs();
 const weekDaysPl = ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nd"];
@@ -27,6 +32,7 @@ const weekDaysPl = ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nd"];
 function populateCalendar(month) {
   calendarDiv.innerHTML = null;
   // put the month name above days & upper case first letter
+  calendarDiv.appendChild(minusButton);
   calendarDiv.appendChild(monthName);
   calendarDiv.appendChild(plusButton);
   let firstLetter = selectedMonth.format("MMMM YYYY").slice(0, 1);
@@ -62,11 +68,19 @@ function populateCalendar(month) {
   for (let i = 1; i <= daysInMonth; i++) {
     const day = document.createElement("span");
     day.setAttribute("class", "daySpan");
+    day.setAttribute("id", `day-${i}`);
     day.innerText = i.toString();
     calendarDiv.appendChild(day);
   }
+  calendarDiv.addEventListener("click", (e) => {
+    const selectedDate = `${selectedMonth.format("YYYY-MM")}-${
+      e.target.innerText
+    }`;
+    const parseDate = dayjs(selectedDate);
+    console.log(parseDate);
+  });
 }
-
+// onclick functions to add or subtract month
 function plusHandler() {
   selectedMonth = selectedMonth.add(1, "month");
   populateCalendar(selectedMonth);
@@ -76,7 +90,7 @@ function minusHandler() {
   populateCalendar(selectedMonth);
 }
 window.onload = populateCalendar(dayjs());
-console.log(calendarDiv.children);
+
 /* create calendar */
 
 hourHeader.setAttribute("id", "hourHeader");
