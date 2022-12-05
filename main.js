@@ -17,9 +17,14 @@ const monthName = document.createElement("span");
 monthName.setAttribute("class", "monthName");
 monthName.setAttribute("id", "monthName");
 const plusButton = document.createElement("button");
-plusButton.setAttribute("onclick", "plusHandler()");
-plusButton.setAttribute("id", "plusButton");
-plusButton.setAttribute("class", "monthButton");
+Object.assign(plusButton, {
+  onclick: () => plusHandler(),
+  id: "plusButton",
+  className: "monthButton",
+});
+// plusButton.setAttribute("onclick", "plusHandler()");
+// plusButton.setAttribute("id", "plusButton");
+// plusButton.setAttribute("class", "monthButton");
 plusButton.innerText = ">>";
 const minusButton = document.createElement("button");
 minusButton.setAttribute("id", "minusButton");
@@ -84,6 +89,7 @@ calendarDiv.addEventListener("click", (e) => {
     const parseDate = dayjs(selectedDate);
     dateHeader.innerText = parseDate.format("D MMMM YYYY");
     weekDayHeader.innerText = parseDate.format("dddd");
+    console.log(parseDate.toDate());
   }
 });
 
